@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
+<title>Berto The Barber | Design C</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#e3211c;--blue:#1634d6;--k:#000;--pad:clamp(18px,5vw,56px)}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:#fff;color:#000;font:500 17px/1.45 "Archivo",system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wide{font-stretch:125%;font-weight:900;text-transform:uppercase;letter-spacing:-.04em}
+.btn{display:inline-block;background:var(--red);color:#fff;font-weight:800;padding:15px 22px;border:3px solid #000;box-shadow:5px 5px 0 #000;transition:transform .12s,box-shadow .12s}
+.btn:active{transform:translate(5px,5px);box-shadow:0 0 0 #000}
+
+.top{display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top) + 12px) var(--pad) 12px;border-bottom:3px solid #000;font-weight:700;font-size:15px}
+.top a{background:#000;color:#fff;padding:8px 14px}
+
+.hero{padding:26px var(--pad) 0;position:relative}
+h1{font-size:clamp(46px,16.4vw,190px);line-height:.84;position:relative;z-index:2;white-space:nowrap}
+h1 i{display:inline-block;font-style:normal;opacity:0;transform:translateY(-130%) rotate(-16deg)}
+.go h1 i{animation:drop .7s cubic-bezier(.2,1.5,.4,1) forwards;animation-delay:calc(var(--i)*55ms + .15s)}
+@keyframes drop{to{opacity:1;transform:none}}
+.lede{font-size:19px;max-width:30ch;margin:20px 0 16px;opacity:0}
+.go .lede{animation:fade .6s 1.2s forwards}@keyframes fade{to{opacity:1}}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.meta span{border:3px solid #000;padding:6px 10px;font-weight:800;font-size:14px;background:#fff;opacity:0;transform:scale(.3) rotate(-10deg)}
+.meta span:first-child{background:var(--blue);color:#fff;border-color:var(--blue)}
+.go .meta span{animation:stamp .45s cubic-bezier(.2,1.6,.4,1) forwards}
+.go .meta span:nth-child(1){animation-delay:1.4s}.go .meta span:nth-child(2){animation-delay:1.55s}.go .meta span:nth-child(3){animation-delay:1.7s}
+@keyframes stamp{to{opacity:1;transform:none}}
+.hero .btn{opacity:0}.go .hero .btn{animation:fade .5s 1.9s forwards}
+
+.pole{position:relative;height:118vw;max-height:760px;margin:30px calc(var(--pad)*-1) 0;overflow:hidden;border-top:3px solid #000;background:repeating-linear-gradient(-45deg,var(--blue) 0 60px,#0f27ad 60px 120px);background-size:170px 170px;animation:pole 5s linear infinite}
+@keyframes pole{to{background-position:170px 0}}
+.pin{position:absolute;will-change:transform}
+.pin img{width:100%;height:100%;object-fit:cover;border:5px solid #fff;box-shadow:8px 8px 0 #000;opacity:0}
+.p1{width:60%;height:66%;left:7%;top:6%}.p2{width:48%;height:54%;right:5%;bottom:6%}
+.p1 img{transform:translate(130%,-70%) rotate(45deg)}.p2 img{transform:translate(-150%,90%) rotate(-55deg)}
+.go .p1 img{animation:fly1 .9s .7s cubic-bezier(.2,1.2,.3,1) forwards}.go .p2 img{animation:fly2 .9s 1s cubic-bezier(.2,1.2,.3,1) forwards}
+@keyframes fly1{to{opacity:1;transform:rotate(-4deg)}}@keyframes fly2{to{opacity:1;transform:rotate(5deg)}}
+.tag{position:absolute;left:5%;bottom:9%;background:var(--red);color:#fff;font-size:19px;padding:10px 12px;border:3px solid #000;opacity:0;transform:scale(3) rotate(-20deg);z-index:2}
+.go .tag{animation:slam .35s 1.9s cubic-bezier(.3,1.4,.5,1) forwards}@keyframes slam{to{opacity:1;transform:rotate(-5deg)}}
+
+.ticker{background:#000;color:#fff;overflow:hidden;white-space:nowrap;font-size:22px;padding:14px 0;font-stretch:112%;font-weight:800;text-transform:uppercase}
+.ticker div{display:inline-block;will-change:transform}
+.ticker b{color:var(--red);margin:0 16px;display:inline-block;animation:snip .5s steps(2) infinite}
+@keyframes snip{50%{transform:rotate(-25deg)}}
+
+.sec{padding:clamp(60px,15vw,120px) var(--pad)}
+h2{font-size:clamp(40px,12.5vw,110px);line-height:.85;margin-bottom:26px}
+
+/* stacking photo cards */
+.stack{padding:clamp(60px,15vw,120px) var(--pad) 30px}
+.stack figure{position:sticky;top:calc(9svh + var(--n)*10px);margin:0 auto 26svh;width:min(86%,460px);background:#fff;border:3px solid #000;box-shadow:8px 8px 0 #000;padding:8px 8px 0;transform:rotate(var(--r));transform-origin:50% 100%}
+.stack figure:last-child{margin-bottom:8svh}
+.stack .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
+.stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stack .bw{filter:grayscale(1) contrast(1.15)}
+.stack .col{clip-path:inset(0 100% 0 0);transition:clip-path .8s cubic-bezier(.6,0,.2,1)}
+.stack figure.in .col{clip-path:inset(0)}
+.stack figcaption{display:flex;justify-content:space-between;padding:10px 4px;font-weight:800;font-size:15px}
+.stack figcaption span{color:var(--red)}
+
+/* trophies */
+.hard{position:relative;background:var(--red);color:#fff;border-top:3px solid #000;border-bottom:3px solid #000;padding:clamp(60px,15vw,120px) var(--pad);overflow:hidden}
+.hard .ph{position:relative;border:5px solid #fff;box-shadow:8px 8px 0 #000;transform:rotate(-3deg);margin:10px 4% 34px 0;will-change:transform}
+.hard .ph img{width:100%;aspect-ratio:1;object-fit:cover}
+.seal{position:absolute;right:-22px;top:-34px;width:128px;height:128px;z-index:2}
+.seal svg{width:100%;height:100%;animation:spin 14s linear infinite}
+.seal text{font:900 15.5px "Archivo";font-stretch:125%;letter-spacing:.06em;fill:#000;text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hard p{font-size:19px;max-width:30ch}
+
+/* services */
+.menu{list-style:none;padding:0;border-top:3px solid #000}
+.menu li{position:relative;display:grid;grid-template-columns:1fr auto;gap:0 14px;align-items:center;padding:15px 0;border-bottom:3px solid #000;overflow:hidden}
+.menu li::before{content:"";position:absolute;inset:0;background:var(--blue);transform:translateX(-101%);transition:transform .55s cubic-bezier(.6,0,.2,1)}
+.menu li.in::before{animation:sweep 1s cubic-bezier(.6,0,.2,1)}
+@keyframes sweep{0%{transform:translateX(-101%)}50%{transform:none}100%{transform:translateX(101%)}}
+.menu b{font-weight:800;font-size:18px;position:relative}
+.menu small{display:block;font-weight:500;font-size:14px;color:#555}
+.menu strong{position:relative;font-size:26px;font-stretch:125%;font-weight:900;letter-spacing:-.03em}
+
+/* reviews */
+.rev{background:#000;color:#fff}
+.rev h2 span{color:var(--red)}
+.rev blockquote{background:#fff;color:#000;border:3px solid #fff;padding:20px 18px;margin:0 0 22px;max-width:520px;box-shadow:7px 7px 0 var(--blue);opacity:0;transform:scale(1.5) rotate(var(--r));transition:opacity .25s,transform .4s cubic-bezier(.3,1.5,.5,1)}
+.rev blockquote:nth-child(odd){margin-left:auto;box-shadow:-7px 7px 0 var(--red)}
+.rev blockquote.in{opacity:1;transform:rotate(var(--r2))}
+.rev p{font-size:21px;font-weight:800;line-height:1.15}
+.rev cite{display:block;margin-top:10px;font-style:normal;font-weight:600;font-size:14px}
+
+.find{background:var(--blue);color:#fff}
+.find address{font-style:normal;font-size:21px;font-weight:800;line-height:1.3}
+.find p{margin:14px 0 22px;max-width:34ch}
+.find a{background:#fff;color:#000;font-weight:800;padding:12px 18px;display:inline-block;border:3px solid #000;box-shadow:5px 5px 0 #000}
+
+.end{padding:60px 0 170px;overflow:hidden}
+.roll{white-space:nowrap;font-size:clamp(70px,24vw,220px);line-height:.9;will-change:transform}
+.roll.o{color:#fff;-webkit-text-stroke:3px #000}
+.end .in{padding:34px var(--pad) 0}
+.end small{display:block;margin-top:34px;color:#777;font-size:13px}
+
+.rv{opacity:0;transform:translateY(24px) rotate(-2deg);transition:opacity .6s,transform .6s cubic-bezier(.2,1.3,.4,1)}
+.rv.in{opacity:1;transform:none}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px var(--pad) calc(env(safe-area-inset-bottom) + 12px);background:#fff;border-top:3px solid #000;transform:translateY(110%);transition:transform .45s cubic-bezier(.2,1.2,.4,1)}
+.dock.show{transform:none}
+.dock span{font-size:14px;line-height:1.2}.dock span b{display:block;font-size:17px;font-weight:900}
+.dock .btn{padding:11px 18px;box-shadow:4px 4px 0 #000}
+
+@media (min-width:900px){.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:0 40px}.pole{grid-column:2;grid-row:1/span 5;margin:-26px calc(var(--pad)*-1) 0 0;height:auto;max-height:none;min-height:640px;border-top:0;border-left:3px solid #000}h1{font-size:clamp(58px,8.6vw,150px)}.hard{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  h1 i,.lede,.meta span,.hero .btn,.pin img,.tag,.rv,.rev blockquote{opacity:1;transform:none}
+  .stack .col{clip-path:none}.stack figure{position:relative;top:0;margin-bottom:30px}
+}
+</style>
+</head>
+<body>
+<div class="top"><span>Berto On The Cut</span><a href="https://berto-onthecut.booksy.com">Book</a></div>
+
+<header class="hero">
+  <h1 class="wide" data-split aria-label="Berto on the cut">Berto<br>on the<br>cut</h1>
+  <p class="lede">Fades, tapers, designs and colour from an award-winning barber. One chair, by appointment, at 144th and I-25.</p>
+  <div class="meta"><span>5.0 from 199 reviews</span><span>Haircuts from $60</span><span>Evening times</span></div>
+  <div><a class="btn" href="https://berto-onthecut.booksy.com">Book a cut</a></div>
+  <div class="pole" id="pole">
+    <div class="pin p1" data-d="-60" data-r="-7"><img id="h1img" alt=""></div>
+    <div class="pin p2" data-d="70" data-r="9"><img id="h2img" alt=""></div>
+    <div class="tag wide">Fresh cuts</div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div id="tick">
+  Haircut $60 <b>✂</b> Cut and beard $75 <b>✂</b> Designs $70 <b>✂</b> Kids $45 <b>✂</b> Father and son $105 <b>✂</b> House calls <b>✂</b>
+  Haircut $60 <b>✂</b> Cut and beard $75 <b>✂</b> Designs $70 <b>✂</b> Kids $45 <b>✂</b> Father and son $105 <b>✂</b> House calls <b>✂</b>
+</div></div>
+
+<section class="stack" id="stack"><h2 class="wide rv">The work</h2></section>
+
+<section class="hard">
+  <div class="ph" id="ph"><img src="../img/trophies.jpg" alt="Berto seated among his barber competition trophies" loading="lazy">
+    <div class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="59" fill="#fff" stroke="#000" stroke-width="2"/><path id="ring" d="M60 60m-43 0a43 43 0 1 1 86 0a43 43 0 1 1-86 0" fill="none"/><text><textPath href="#ring">Award-winning ★ Award-winning ★ </textPath></text><text x="60" y="68" text-anchor="middle" style="font-size:26px;letter-spacing:-.03em">5.0</text></svg></div>
+  </div>
+  <div class="rv"><h2 class="wide" style="font-size:clamp(34px,10.4vw,96px)">The<br>hardware</h2><p>Competition trophies, earned with the same clippers that cut your hair.</p></div>
+</section>
+
+<section class="sec">
+  <h2 class="wide rv">Services</h2>
+  <ul class="menu">
+    <li><b>Haircut<small>40 min</small></b><strong>$60</strong></li>
+    <li><b>Haircut and beard<small>1 hr, hot towel included</small></b><strong>$75</strong></li>
+    <li><b>Haircut and eyebrows<small>45 min</small></b><strong>$65</strong></li>
+    <li><b>Haircut with designs<small>1 hr</small></b><strong>$70</strong></li>
+    <li><b>Long hair or transformation<small>45 min, shampoo included</small></b><strong>$65</strong></li>
+    <li><b>Kids haircut<small>30 min, under 12</small></b><strong>$45</strong></li>
+    <li><b>Father and son<small>1 hr, son under 12</small></b><strong>$105</strong></li>
+    <li><b>Beard line-up and edge-up<small>30 min, hot towel included</small></b><strong>$45</strong></li>
+    <li><b>Head shave and beard line-up<small>45 min, hot lather and towel</small></b><strong>$45</strong></li>
+    <li><b>House call<small>About 1 hr 30 min, Berto comes to you</small></b><strong>Ask</strong></li>
+  </ul>
+</section>
+
+<section class="sec rev">
+  <h2 class="wide rv">5.0 <span>★</span><br>199 reviews</h2>
+  <div>
+    <blockquote style="--r:-9deg;--r2:-2deg"><p>This is the guy for your cut. I am locked into staying on Berto's schedule.</p><cite>Taylor, on Booksy</cite></blockquote>
+    <blockquote style="--r:8deg;--r2:1.5deg"><p>Highly recommend Berto! He does a great job on both my haircut and beard.</p><cite>Armando, on Booksy</cite></blockquote>
+    <blockquote style="--r:-7deg;--r2:-1deg"><p>Attention to detail.</p><cite>Jose Luis, on Booksy</cite></blockquote>
+  </div>
+</section>
+
+<section class="sec find">
+  <h2 class="wide rv">Find the studio</h2>
+  <address>Studio 4, Sola Salons<br>14532 Orchard Pkwy<br>Westminster, CO 80023</address>
+  <p>Orchard Town Center at 144th and I-25. By appointment, with evening times. Free parking, cards accepted, wheelchair accessible, kids welcome.</p>
+  <a href="https://maps.apple.com/?q=Sola+Salons+14532+Orchard+Pkwy+Westminster+CO+80023">Open in Maps</a>
+</section>
+
+<section class="end">
+  <div class="roll wide" id="r1" aria-hidden="true">Book a cut ✂ Book a cut ✂ Book a cut ✂ Book a cut</div>
+  <div class="roll wide o" id="r2" aria-hidden="true">Berto on the cut ✂ Berto on the cut ✂ Berto on the cut</div>
+  <div class="in"><a class="btn" href="https://berto-onthecut.booksy.com">Book a cut on Booksy</a><small>Design preview for Berto. Not the final site.</small></div>
+</section>
+
+<div class="dock" id="dock"><span><b>Haircut $60</b>Westminster, by appointment</span><a class="btn" href="https://berto-onthecut.booksy.com">Book a cut</a></div>
+
+<script>
+const WORK = /*WORK*/[
+  {f:'ig04.jpg',t:'Platinum crop, low fade'},{f:'ig07.jpg',t:'Curly top taper and beard'},{f:'work4.jpg',t:'Low taper, textured crop'},{f:'ig37.jpg',t:'Curly mullet, taper and beard'},
+  {f:'ig62.jpg',t:'360 waves, low taper'},{f:'ig63.jpg',t:'Curly burst fade'},{f:'ig12.jpg',t:'Natural top taper'},{f:'ig00.jpg',t:'Textured quiff, mid fade'}
+]/*END*/;
+(() => {
+  const $ = s => document.querySelector(s), still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('#h1img').src = '../img/' + WORK[0].f; $('#h2img').src = '../img/' + WORK[1].f;
+  const stack = $('#stack'), rot = [-3, 2.5, -1.5, 3, -2.5, 1.5];
+  stack.insertAdjacentHTML('beforeend', WORK.slice(2).concat(WORK.slice(0, 2)).map((w, i, a) =>
+    `<figure style="--n:${i};--r:${rot[i % rot.length]}deg"><div class="im"><img class="bw" src="../img/${w.f}" alt="${w.t}" loading="lazy"><img class="col" src="../img/${w.f}" alt="" loading="lazy"></div><figcaption>${w.t}<span>${i + 1}/${a.length}</span></figcaption></figure>`).join(''));
+  document.querySelectorAll('[data-split]').forEach(h => { let i = 0;
+    h.innerHTML = h.innerHTML.split(/<br\s*\/?>/).map(l => [...l].map(ch => ch === ' ' ? ' ' : `<i style="--i:${i++}" aria-hidden="true">${ch}</i>`).join('')).join('<br>'); });
+  document.body.classList.add('go');
+  if (still) return;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .35});
+  document.querySelectorAll('.rv,.menu li,.rev blockquote,.stack figure').forEach(el => io.observe(el));
+
+  const pole = $('#pole'), pins = [...document.querySelectorAll('.pin')], tick = $('#tick'), ph = $('#ph'), r1 = $('#r1'), r2 = $('#r2'), dock = $('#dock');
+  let tx = 0, last = scrollY, vel = 0, t0 = performance.now();
+  (function loop(t) { const dt = Math.min(50, t - t0); t0 = t;
+    const y = scrollY, vh = innerHeight; vel += ((y - last) - vel) * .15; last = y;
+    // ticker: rolls on its own, speeds up and leans with scroll
+    const half = tick.scrollWidth / 2; tx -= dt * .07 + vel * .9; if (tx < -half) tx += half; if (tx > 0) tx -= half;
+    tick.style.transform = `translateX(${tx}px) skewX(${Math.max(-18, Math.min(18, -vel * .6))}deg)`;
+    // thrown photos drift and twist as you scroll
+    const pr = pole.getBoundingClientRect();
+    if (pr.bottom > 0 && pr.top < vh) { const p = (vh - pr.top) / (vh + pr.height) - .5;
+      pins.forEach(el => el.style.transform = `translateY(${p * el.dataset.d}px) rotate(${p * el.dataset.r}deg)`); }
+    const hr = ph.getBoundingClientRect(); if (hr.bottom > 0 && hr.top < vh) ph.style.transform = `rotate(${-3 + ((vh - hr.top) / (vh + hr.height) - .5) * 10}deg)`;
+    const er = r1.getBoundingClientRect(); if (er.top < vh * 1.2) { const p = (vh - er.top) / vh; r1.style.transform = `translateX(${-p * 34}%)`; r2.style.transform = `translateX(${-50 + p * 30}%)`; }
+    dock.classList.toggle('show', y > vh * .6);
+    requestAnimationFrame(loop); })(t0);
+})();
+</script>
+</body>
+</html>

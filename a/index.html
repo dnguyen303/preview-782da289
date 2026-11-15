@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0806">
+<title>Berto The Barber | Design A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../img/cover.jpg">
+<style>
+:root{--ink:#0a0806;--bone:#efe6d3;--gold:#c8a24a;--mute:#a89f8c;--pad:clamp(20px,5vw,56px);--disp:"Big Shoulders Display",Impact,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{background:var(--ink);-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--bone);font:17px/1.5 "Instrument Sans",system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn{display:inline-block;background:var(--gold);color:var(--ink);font-weight:600;padding:15px 24px;border-radius:2px;position:relative}
+.btn:active{transform:scale(.97)}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.photo{position:absolute;inset:-8% -4% -8% -4%;background:url(../img/cover.jpg) 78% 30%/cover;transform:scale(1.4);filter:brightness(.15) blur(8px);will-change:transform}
+.go .photo{animation:open 2.8s cubic-bezier(.2,.7,.1,1) forwards}
+@keyframes open{to{transform:scale(1.08);filter:brightness(1) blur(0)}}
+.shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,8,6,.98) 6%,rgba(10,8,6,.6) 42%,rgba(10,8,6,.1) 70%),linear-gradient(90deg,rgba(10,8,6,.7),rgba(10,8,6,0) 60%)}
+.glint{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,228,160,.25) 50%,transparent 60%);transform:translateX(-130%);mix-blend-mode:screen}
+.go .glint{animation:glint 6s 2.4s ease-in-out infinite}
+@keyframes glint{0%{transform:translateX(-130%)}40%,100%{transform:translateX(130%)}}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.top{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top) + 18px) var(--pad) 0;opacity:0}
+.go .top{animation:fade .8s 2s forwards}
+.top b{font:900 22px var(--disp);letter-spacing:.03em}
+.top a{font-size:15px;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.copy{position:relative;z-index:2;padding:0 var(--pad) calc(env(safe-area-inset-bottom) + 34px);will-change:transform,opacity}
+h1{font:900 clamp(92px,31vw,230px)/.82 var(--disp);text-transform:uppercase;letter-spacing:-.005em}
+h1 span{display:block;overflow:hidden;padding-top:.04em}
+h1 em{display:block;font-style:normal;transform:translateY(110%)}
+.go h1 em{animation:rise 1.1s cubic-bezier(.16,1,.3,1) forwards}
+.go h1 span:nth-child(1) em{animation-delay:.5s}.go h1 span:nth-child(3) em{animation-delay:.9s}
+h1 .g em{color:transparent;-webkit-text-stroke:2px var(--gold);background:linear-gradient(90deg,var(--gold) 50%,transparent 50%) 100% 0/200% 100% no-repeat;-webkit-background-clip:text;background-clip:text}
+.go h1 .g em{animation:rise 1.1s .7s cubic-bezier(.16,1,.3,1) forwards,fill 1.2s 2s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes rise{to{transform:none}}@keyframes fill{to{background-position:0 0}}@keyframes fade{to{opacity:1}}
+.lede{max-width:30ch;margin:20px 0 24px;color:#d8cfbd;opacity:0;transform:translateY(14px)}
+.copy .btn{opacity:0;transform:translateY(14px)}
+.go .lede{animation:up .8s 1.6s forwards}.go .copy .btn{animation:up .8s 1.8s forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.btn.ring::after{content:"";position:absolute;inset:0;border:1px solid var(--gold);border-radius:2px;opacity:0;animation:ring 2.6s 3.6s ease-out infinite}
+@keyframes ring{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.3,1.9)}}
+.cue{position:absolute;right:var(--pad);bottom:calc(env(safe-area-inset-bottom) + 38px);z-index:2;width:1px;height:54px;background:rgba(200,162,74,.3);overflow:hidden}
+.cue::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--gold);animation:cue 1.8s 3s ease-in-out infinite}
+@keyframes cue{to{top:100%}}
+
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(200,162,74,.35);border-bottom:1px solid rgba(200,162,74,.18)}
+.proof div{padding:22px 0 20px var(--pad);border-right:1px solid rgba(200,162,74,.18)}
+.proof div:last-child{border:0}
+.proof strong{display:block;font:900 clamp(44px,13vw,84px)/1 var(--disp);color:var(--gold);font-variant-numeric:tabular-nums}
+.proof span{font-size:13px;color:var(--mute);display:block;max-width:12ch;line-height:1.3;margin-top:4px}
+
+/* statement */
+.say{padding:clamp(90px,22vw,180px) var(--pad)}
+.say p{font:900 clamp(44px,12.5vw,120px)/.95 var(--disp);text-transform:uppercase;max-width:14ch}
+.say i{font-style:normal;opacity:.14;transition:opacity .25s,color .25s}
+.say i.on{opacity:1}.say i.on.au{color:var(--gold)}
+
+/* work: vertical scroll drives a horizontal filmstrip */
+.work{position:relative}
+.pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.work h2,.sec h2{font:900 clamp(40px,11vw,88px)/.9 var(--disp);text-transform:uppercase}
+.work header{display:flex;justify-content:space-between;align-items:end;padding:0 var(--pad) 18px}
+.work header span{font:700 20px var(--disp);color:var(--gold);font-variant-numeric:tabular-nums}
+.track{display:flex;gap:10px;padding:0 var(--pad);will-change:transform}
+.track figure{flex:0 0 auto;width:min(74vw,440px);position:relative;overflow:hidden;background:#15110c}
+.track img{width:100%;aspect-ratio:3/4;object-fit:cover;transform:scale(1.18);filter:saturate(.55) brightness(.75);transition:filter .5s,transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.track figure.live img{filter:none;transform:scale(1.02)}
+.track figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 12px;background:linear-gradient(0deg,rgba(10,8,6,.9),transparent);font-weight:600;font-size:15px;transform:translateY(100%);transition:transform .5s}
+.track figure.live figcaption{transform:none}
+.bar{height:2px;margin:18px var(--pad) 0;background:rgba(200,162,74,.2)}
+.bar i{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+
+/* trophies */
+.hard{position:relative;height:120svh;overflow:hidden}
+.hard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;will-change:transform}
+.hard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--ink) 2%,rgba(10,8,6,.2) 45%,var(--ink) 100%)}
+.hard div{position:absolute;z-index:1;left:var(--pad);right:var(--pad);bottom:12%}
+.hard h2{font:900 clamp(56px,17vw,150px)/.85 var(--disp);text-transform:uppercase}
+.hard p{max-width:30ch;margin-top:14px;color:#d8cfbd}
+
+/* sections */
+.sec{padding:clamp(70px,16vw,130px) var(--pad)}
+.sec h2{margin-bottom:26px}
+.menu{list-style:none;padding:0}
+.menu li{position:relative;display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:17px 0;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.menu li::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(200,162,74,.4);transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.6,0,.2,1)}
+.menu li.in{opacity:1;transform:none}.menu li.in::after{transform:scaleX(1)}
+.menu b{font-weight:600;font-size:18px}
+.menu strong{font:900 30px/1 var(--disp);color:var(--gold);grid-row:span 2;align-self:center}
+.menu small{color:var(--mute);font-size:14px}
+
+.stars{display:flex;gap:6px;margin-bottom:8px}
+.stars svg{width:30px;height:30px;fill:var(--gold);transform:scale(0) rotate(-40deg);transition:transform .5s cubic-bezier(.2,1.6,.4,1)}
+.in .stars svg{transform:none}
+.stars svg:nth-child(2){transition-delay:.1s}.stars svg:nth-child(3){transition-delay:.2s}.stars svg:nth-child(4){transition-delay:.3s}.stars svg:nth-child(5){transition-delay:.4s}
+.rate{color:var(--mute);margin-bottom:26px}
+.quotes{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 8px;scrollbar-width:none}
+.quotes::-webkit-scrollbar{display:none}
+.quotes blockquote{flex:0 0 84%;max-width:460px;scroll-snap-align:center;border:1px solid rgba(200,162,74,.3);padding:24px 22px}
+.quotes p{font:700 clamp(26px,7.4vw,38px)/1.08 var(--disp);text-transform:uppercase}
+.quotes cite{display:block;margin-top:16px;font-style:normal;color:var(--gold);font-size:15px}
+
+.find address{font-style:normal;font-size:19px;line-height:1.45}
+.find p{color:var(--mute);margin:14px 0 22px;max-width:36ch}
+.find .line{border-bottom:1px solid var(--gold);padding-bottom:2px;font-weight:600}
+
+.end{padding:clamp(90px,24vw,200px) var(--pad) 170px;text-align:left;overflow:hidden}
+.end h2{font:900 clamp(96px,33vw,260px)/.8 var(--disp);text-transform:uppercase;color:transparent;-webkit-text-stroke:2px var(--gold);margin-bottom:30px;will-change:transform}
+.end small{display:block;margin-top:38px;color:#6f6858;font-size:13px}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.1,1)}
+.rv.in{opacity:1;transform:none}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px var(--pad) calc(env(safe-area-inset-bottom) + 12px);background:rgba(10,8,6,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid rgba(200,162,74,.3);transform:translateY(110%);transition:transform .5s cubic-bezier(.2,.7,.1,1)}
+.dock.show{transform:none}
+.dock span{font-size:14px;color:var(--mute);line-height:1.25}.dock span b{display:block;color:var(--bone);font-size:16px}
+.dock .btn{padding:12px 20px}
+
+@media (max-width:700px){.photo{background-position:88% 30%}}
+@media (min-width:900px){.proof span{max-width:none}.track figure{width:360px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .photo{transform:scale(1.08);filter:none}.top,.lede,.copy .btn,.rv,.menu li{opacity:1;transform:none}h1 em{transform:none}h1 .g em{background-position:0 0}
+  .menu li::after,.stars svg{transform:none}.say i{opacity:1}
+  .pin{position:static;height:auto;padding:70px 0}.track{overflow-x:auto}.track img{filter:none;transform:none}.track figcaption{transform:none}
+}
+</style>
+</head>
+<body>
+<header class="hero" id="hero">
+  <div class="photo" role="img" aria-label="Berto lining up a client's taper with clippers"></div>
+  <div class="shade"></div><div class="glint"></div><canvas aria-hidden="true"></canvas>
+  <div class="top"><b>BERTO THE BARBER</b><a href="https://berto-onthecut.booksy.com">Book</a></div>
+  <div class="copy" id="copy">
+    <h1><span><em>Berto</em></span><span class="g"><em>on the</em></span><span><em>cut</em></span></h1>
+    <p class="lede">Award-winning cuts in a private one-chair studio at the Orchard Town Center, Westminster.</p>
+    <a class="btn ring" href="https://berto-onthecut.booksy.com">Book a cut from $60</a>
+  </div>
+  <div class="cue" aria-hidden="true"></div>
+</header>
+
+<section class="proof" id="proof" aria-label="Ratings">
+  <div><strong data-to="5" data-dec="1">5.0</strong><span>average rating on Booksy</span></div>
+  <div><strong data-to="199">199</strong><span>client reviews</span></div>
+  <div><strong data-to="197">197</strong><span>of them five stars</span></div>
+</section>
+
+<section class="say" id="say"><p>Award-winning barber. One chair. No waiting room. Every cut by Berto.</p></section>
+
+<section class="work" id="work">
+  <div class="pin">
+    <header><h2>The work</h2><span id="count" aria-hidden="true"></span></header>
+    <div class="track" id="track"></div>
+    <div class="bar"><i id="bar"></i></div>
+  </div>
+</section>
+
+<section class="hard" id="hard">
+  <img src="../img/trophies.jpg" alt="Berto seated among his barber competition trophies" loading="lazy">
+  <div class="rv"><h2>The hardware</h2><p>Competition trophies, earned with the same clippers that cut your hair.</p></div>
+</section>
+
+<section class="sec">
+  <h2 class="rv">Services</h2>
+  <ul class="menu" id="menu">
+    <li><b>Haircut</b><strong>$60</strong><small>40 min</small></li>
+    <li><b>Haircut and beard</b><strong>$75</strong><small>1 hr, hot towel included</small></li>
+    <li><b>Haircut and eyebrows</b><strong>$65</strong><small>45 min</small></li>
+    <li><b>Haircut with designs</b><strong>$70</strong><small>1 hr</small></li>
+    <li><b>Long hair or transformation</b><strong>$65</strong><small>45 min, shampoo included</small></li>
+    <li><b>Kids haircut</b><strong>$45</strong><small>30 min, under 12</small></li>
+    <li><b>Father and son</b><strong>$105</strong><small>1 hr, son under 12</small></li>
+    <li><b>Beard line-up and edge-up</b><strong>$45</strong><small>30 min, hot towel included</small></li>
+    <li><b>Head shave and beard line-up</b><strong>$45</strong><small>45 min, hot lather and towel</small></li>
+    <li><b>House call</b><strong>Ask</strong><small>About 1 hr 30 min, Berto comes to you</small></li>
+  </ul>
+</section>
+
+<section class="sec rv" id="rev">
+  <div class="stars" aria-label="Five stars">
+    <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.6 7.1L12 17.8 5.600 21.4l1.600-7.100L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.6 7.1L12 17.8 5.600 21.4l1.600-7.100L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.6 7.1L12 17.8 5.600 21.4l1.600-7.100L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.6 7.1L12 17.8 5.600 21.4l1.600-7.100L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.6 7.1L12 17.8 5.600 21.4l1.600-7.100L1.800 9.400 9 8.600z"/></svg>
+  </div>
+  <p class="rate">5.0 from 199 reviews on Booksy</p>
+  <div class="quotes">
+    <blockquote><p>This is the guy for your cut. I am locked into staying on Berto's schedule.</p><cite>Taylor</cite></blockquote>
+    <blockquote><p>Highly recommend Berto! He does a great job on both my haircut and beard.</p><cite>Armando</cite></blockquote>
+    <blockquote><p>Attention to detail.</p><cite>Jose Luis</cite></blockquote>
+  </div>
+</section>
+
+<section class="sec find rv">
+  <h2>Find the studio</h2>
+  <address>Studio 4, Sola Salons<br>14532 Orchard Pkwy<br>Westminster, CO 80023</address>
+  <p>Orchard Town Center at 144th and I-25. By appointment, with evening times. Free parking, cards accepted, wheelchair accessible, kids welcome.</p>
+  <a class="line" href="https://maps.apple.com/?q=Sola+Salons+14532+Orchard+Pkwy+Westminster+CO+80023">Open in Maps</a>
+</section>
+
+<section class="end">
+  <h2 id="endh">Your<br>chair<br>is open</h2>
+  <a class="btn" href="https://berto-onthecut.booksy.com">Book a cut on Booksy</a>
+  <small>Design preview for Berto. Not the final site.</small>
+</section>
+
+<div class="dock" id="dock"><span><b>Haircut $60</b>Westminster, by appointment</span><a class="btn" href="https://berto-onthecut.booksy.com">Book a cut</a></div>
+
+<script>
+const WORK = /*WORK*/[
+  {f:'ig04.jpg',t:'Platinum crop, low fade'},{f:'ig07.jpg',t:'Curly top taper and beard'},{f:'work4.jpg',t:'Low taper, textured crop'},{f:'ig37.jpg',t:'Curly mullet, taper and beard'},
+  {f:'ig62.jpg',t:'360 waves, low taper'},{f:'ig63.jpg',t:'Curly burst fade'},{f:'ig12.jpg',t:'Natural top taper'},{f:'ig00.jpg',t:'Textured quiff, mid fade'}
+]/*END*/;
+(() => {
+  const $ = s => document.querySelector(s), still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const track = $('#track');
+  track.innerHTML = WORK.map(w => `<figure><img src="../img/${w.f}" alt="${w.t}" loading="lazy"><figcaption>${w.t}</figcaption></figure>`).join('');
+  const figs = [...track.children];
+  document.body.classList.add('go');
+  if (still) return;
+
+  // statement words
+  const say = $('#say p');
+  say.innerHTML = say.textContent.split(' ').map(w => `<i class="${/Award|Berto/.test(w) ? 'au' : ''}">${w}</i>`).join(' ');
+  const words = [...say.children];
+
+  // count-up once
+  const nums = [...document.querySelectorAll('[data-to]')]; let counted = false;
+  const count = () => { counted = true; const t0 = performance.now();
+    nums.forEach(el => { const to = +el.dataset.to, dec = +el.dataset.dec || 0;
+      (function tick(t) { const p = Math.min(1, (t - t0) / 1700), e = 1 - Math.pow(1 - p, 3); el.textContent = (to * e).toFixed(dec); if (p < 1) requestAnimationFrame(tick); })(t0); }); };
+  nums.forEach(el => el.textContent = (0).toFixed(+el.dataset.dec || 0));
+
+  // reveals
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .2});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  document.querySelectorAll('.menu li').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el); });
+
+  // clippings drifting through the light
+  const hero = $('#hero'), cv = hero.querySelector('canvas'), cx = cv.getContext('2d'); let W, H;
+  const fit = () => { W = cv.width = hero.clientWidth; H = cv.height = hero.clientHeight; }; fit(); addEventListener('resize', fit);
+  const bits = Array.from({length: 60}, () => ({x: Math.random(), y: Math.random(), l: 3 + Math.random() * 7, a: Math.random() * 6.3, v: .0006 + Math.random() * .0014, s: (Math.random() - .5) * .03, o: .15 + Math.random() * .5}));
+  let heroOn = true;
+  (function loop() { if (heroOn) { cx.clearRect(0, 0, W, H);
+    for (const b of bits) { b.y += b.v; b.x += Math.sin(b.a) * .0005; b.a += b.s; if (b.y > 1.05) { b.y = -.05; b.x = Math.random(); }
+      const px = b.x * W, py = b.y * H; cx.strokeStyle = `rgba(232,200,130,${b.o})`; cx.beginPath(); cx.moveTo(px, py); cx.lineTo(px + Math.cos(b.a) * b.l, py + Math.sin(b.a) * b.l); cx.stroke(); } }
+    requestAnimationFrame(loop); })();
+
+  // scroll-linked motion
+  const photo = $('.photo'), copy = $('#copy'), work = $('#work'), bar = $('#bar'), cnt = $('#count'), hard = $('#hard img'), endh = $('#endh'), dock = $('#dock'), proof = $('#proof');
+  const size = () => { work.style.height = (innerHeight + Math.max(0, track.scrollWidth - innerWidth)) + 'px'; };
+  size(); addEventListener('resize', size); addEventListener('load', size);
+  let opened = false; setTimeout(() => opened = true, 3000);
+  const frame = () => {
+    const y = scrollY, vh = innerHeight;
+    heroOn = y < vh;
+    if (heroOn && opened) { photo.style.animation = 'none'; photo.style.filter = 'none'; photo.style.transform = `translateY(${y * .28}px) scale(${1.08 + y / vh * .18})`; }
+    if (heroOn) { copy.style.transform = `translateY(${y * -.18}px)`; copy.style.opacity = Math.max(0, 1 - y / (vh * .7)); }
+    dock.classList.toggle('show', y > vh * .7);
+    if (!counted && proof.getBoundingClientRect().top < vh * .9) count();
+    // words
+    const sr = say.getBoundingClientRect(), sp = (vh * .85 - sr.top) / (sr.height + vh * .35);
+    words.forEach((w, i) => w.classList.toggle('on', i / words.length < sp));
+    // filmstrip
+    const wr = work.getBoundingClientRect(), dist = work.offsetHeight - vh, p = Math.min(1, Math.max(0, -wr.top / dist));
+    track.style.transform = `translateX(${-p * (track.scrollWidth - innerWidth)}px)`; bar.style.transform = `scaleX(${p})`;
+    let live = 0; figs.forEach((f, i) => { const r = f.getBoundingClientRect(), c = r.left + r.width / 2; const on = c > innerWidth * .12 && c < innerWidth * .88; f.classList.toggle('live', on); if (on && Math.abs(c - innerWidth / 2) < r.width * .6) live = i; });
+    cnt.textContent = String(live + 1).padStart(2, '0') + ' / ' + String(figs.length).padStart(2, '0');
+    // trophies zoom
+    const hr = hard.parentElement.getBoundingClientRect(); if (hr.top < vh && hr.bottom > 0) hard.style.transform = `scale(${1.25 - Math.min(1, (vh - hr.top) / (vh + hr.height)) * .25})`;
+    // closing headline slides in
+    const er = endh.getBoundingClientRect(); if (er.top < vh) endh.style.transform = `translateX(${Math.max(0, (er.top - vh * .35) / vh) * 60}%)`;
+  };
+  let tick = false; addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(() => { frame(); tick = false; }); } }, {passive: true});
+  frame();
+})();
+</script>
+</body>
+</html>
